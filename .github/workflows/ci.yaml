@@ -52,11 +52,8 @@
 
       # injection des mdp Github Secrets ${{}} : secrets=natif:githubSecrets
           env:
-            DB_HOST: ${{ secrets.DB_HOST }}
-            DB_PORTS: ${{ secrets.DB_HOST }}
-            DB_NAME: ${{ secrets.DB_HOST }}
-            DB_USER: ${{ secrets.DB_HOST }}
-            DB_PASSWORD: ${{ secrets.DB_HOST }}
+              MARIADB_ROOT_PASSWORD: root
+              MARIADB_DATABASE: mabase
 
           ports:
             - 3006:3306
@@ -100,8 +97,8 @@
           image: mariadb:10.11
 
           env:
-              MYSQL_ROOT_PASSWORD: root
-              MYSQL_DATABASE: mabase
+              MARIADB_ROOT_PASSWORD: root
+              MARIADB_DATABASE: mabase
 
           ports:
             - 3006:3306

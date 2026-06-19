@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mon Application</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Mon Application</h1>
+      <span id="api-status">Connexion à l'API...</span>
+    </header>
+
+    <main>
+      <section>
+        <h2>Liste des items</h2>
+        <button id="load-btn">Charger les items</button>
+        <ul id="items-list"></ul>
+      </section>
+
+      <section>
+        <h2>Ajouter un item</h2>
+        <div class="form-group">
+          <input type="text" id="item-name" placeholder="Nom de l'item" />
+          <input type="text" id="item-desc" placeholder="Description (optionnel)" />
+          <button id="add-btn">Ajouter</button>
+        </div>
+        <p id="form-message"></p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

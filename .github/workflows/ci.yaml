@@ -176,5 +176,5 @@ build-image:
       file:  ${{ matrix.compenents }}/Dockerfile
       push: true
       tags: |
-            ghcr.io/${{ github.repository }}/${{ matrix.component }}:latest
+             ghcr.io/${{ github.repository }}/${{ matrix.component }}:latest
             ghcr.io/${{ github.repository }}/${{ matrix.component }}:${{ github.sha }}

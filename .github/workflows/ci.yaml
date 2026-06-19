@@ -48,7 +48,7 @@
       # service for db
       services:
         mariadb:
-          image: mariadb:latest
+          image: mariadb:10.11
 
       # injection des mdp Github Secrets ${{}} : secrets=natif:githubSecrets
           env:
@@ -97,7 +97,7 @@
 
       services:
         mariadb:
-          image: mariadb:latest
+          image: mariadb:10.11
 
           env:
               MYSQL_ROOT_PASSWORD: root

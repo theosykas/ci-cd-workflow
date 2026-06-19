@@ -46,7 +46,7 @@ Il est découpé en 4 jobs interdépendants :
 * Les images sont automatiquement taguées (`latest` et `SHA du commit`) puis poussées sur le registre sécurisé de GitHub : **GHCR (GitHub Container Registry)**.
 
 
-![github recover](./aset_doc/recover.png)
+![github recover](./asset_doc/recover.png)
 
 ---
 

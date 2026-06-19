@@ -1,5 +1,3 @@
----
-
 # Automated DevOps Workflow : CI/CD Pipeline
 
 Ce projet met en œuvre un pipeline de **Validation Continue (CI)** entièrement automatisé via **GitHub Actions**. Il sert de "feu vert" applicatif : le code est testé sous toutes ses coutures avant d'être automatiquement conteneurisé et stocké, prêt pour le déploiement.

@@ -11,7 +11,7 @@ RUN npm run build
 FROM nginx:alpine
 
 # Copie les fichiers buildés dans le dossier public d'Nginx
-COPY --from=builder /app/dist /usr/share/nginx/html
+COPY . /usr/share/nginx/html
 # Ou si tu utilises Vite/Next, adapte le chemin (ex: /app/dist)
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]

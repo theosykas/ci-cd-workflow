@@ -56,7 +56,7 @@
               MARIADB_DATABASE: mabase
 
           ports:
-            - 3006:3306
+            - 3306:3306
           options: --health-cmd="mariadb-admin ping -proot" --health-interval=10s --health-timeout=5s --health-retries=3
 
       steps:
@@ -70,6 +70,15 @@
 
       - name: Install Backend dependencies
         run: npm ci
+
+      - name: Wait for MariaDB to be ready
+        run: |
+          sudo apt-get update && sudo apt-get install -y mysql-client
+          # Boucle qui attend que MariaDB réponde sur le port 3306
+          until mysqladmin ping -h 127.0.0.1 -u root -proot --silent; do
+            echo "Attente du démarrage complet de MariaDB..."
+            sleep 2
+          done
 
       - name: Initialize Database Schema
         run: mysql -h 127.0.0.1 -u root -proot mabase < init.sql
@@ -101,7 +110,7 @@
               MARIADB_DATABASE: mabase
 
           ports:
-            - 3006:3306
+            - 3306:3306
           options: --health-cmd="mariadb-admin ping -proot" --health-interval=10s --health-timeout=5s --health-retries=3
 
       steps:

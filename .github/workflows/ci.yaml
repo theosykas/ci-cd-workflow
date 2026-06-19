@@ -99,11 +99,8 @@
           image: mariadb:latest
 
           env:
-              DB_HOST: ${{ secrets.DB_HOST }}
-              DB_PORTS: ${{ secrets.DB_HOST }}
-              DB_NAME: ${{ secrets.DB_HOST }}
-              DB_USER: ${{ secrets.DB_HOST }}
-              DB_PASSWORD: ${{ secrets.DB_HOST }}
+              MYSQL_ROOT_PASSWORD: root
+              MYSQL_DATABASE: mabase
 
           ports:
             - 3006:3306

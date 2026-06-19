@@ -80,7 +80,7 @@
       - name: Initialize Database Schema
         run: mysql -h 127.0.0.1 -u root -proot mabase < init.sql
 
-      - name: Lunching Backend tests:
+      - name: Lunching Backend tests
         run: npm test
         env:
             DB_HOST: 127.0.0.1
@@ -134,7 +134,7 @@
       - name: Install Backend dependencies
         run: npm ci
 
-      - name: Lunching Backend tests:
+      - name: Lunching Backend tests
         run: npm test
         env:
             DB_HOST: 127.0.0.1
@@ -181,3 +181,4 @@
         tags: |
               ghcr.io/${{ github.repository }}/${{ matrix.component }}:latest
               ghcr.io/${{ github.repository }}/${{ matrix.component }}:${{ github.sha }}
+

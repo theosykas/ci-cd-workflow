@@ -31,7 +31,7 @@ services:
   # 3. Ton Frontend Nginx (depuis GHCR)
   frontend:
     # --- CHANGE ICI TON PSEUDO ET TON DEPOT ---
-    image: ghcr.io/theosykas/automated-devops-workflow/frontend:latest
+    image: ghcr.io/thsykas/automated-devops-workflow/frontend:latest
     ports:
       - 8080:80 # On expose le front sur le port 8080 de ton PC
     networks:

@@ -5,7 +5,7 @@ COPY package*.json ./
 RUN npm ci
 COPY . .
 # On génère les fichiers statiques (remplace par build si ton framework utilise npm run build)
-RUN npm run build --if-present
+RUN npm run build
 
 # Étape 2 : Serveur web léger pour distribuer le front
 FROM nginx:alpine

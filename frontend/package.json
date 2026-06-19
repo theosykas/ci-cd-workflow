@@ -5,7 +5,8 @@
   "scripts": {
     "start": "npx serve . -p 8080",
     "dev": "npx serve . -p 8080",
-    "test": "jest"
+    "test": "jest",
+	"build": "go build!"
   },
   "devDependencies": {
     "jest": "^29.7.0"

@@ -5,8 +5,8 @@ services:
   database:
     image: mariadb:10.11
     environment:
-      MARIADB_ROOT_PASSWORD: root
-      MARIADB_DATABASE: mabase
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_NAME}
     # Nous ne mappons pas le port à l'extérieur car l'API y accède en interne
     networks:
       - app_network
@@ -19,9 +19,9 @@ services:
     environment:
       DB_HOST: database # Le nom du service MariaDB
       DB_PORT: 3306
-      DB_NAME: mabase
-      DB_USER: root
-      DB_PASSWORD: root
+      MARIADB_NAME: ${MARIADB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
     ports:
       - 3000:3000 # On expose l'API sur le port 3000 de ton PC
     depends_on:

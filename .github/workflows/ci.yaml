@@ -70,18 +70,6 @@
         run:
           working-directory: backend
 
-      services:
-        mariadb:
-          image: mariadb:10.11
-
-          env:
-              MARIADB_ROOT_PASSWORD: root
-              MARIADB_DATABASE: mabase
-
-          ports:
-            - 3306:3306
-          options: --health-cmd="mariadb-admin ping -proot" --health-interval=10s --health-timeout=5s --health-retries=3
-
       steps:
       - name: checkout backend unit
         uses: actions/checkout@v4
@@ -89,7 +77,10 @@
       - name: Starting service with compose
         run: docker compose -f ../docker-compose.yaml up -d
         env:
-          DOCKER_NETWORK: ${{ job.services.mariadb.network }}
+          MARIADB_ROOT_PASSWORD: ${{ secrets.DB_ROOT_PASSWORD }}
+          MARIADB_NAME: ${{ secrets.MARIADB_NAME }}
+          MARIADB_USER: ${{ secrets.DB_USER }}
+          MARIADB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
       - name: Use node.js V18
         uses: actions/setup-node@v4
@@ -104,9 +95,9 @@
         env:
             DB_HOST: 127.0.0.1
             DB_PORT: 3306
-            DB_NAME: mabase
-            DB_USER: root
-            DB_PASSWORD: root
+            MARIADB_DATABASE: ${{ secrets.MARIADB_NAME }}
+            MARIADB_USER: ${{ secrets.DB_USER }}
+            MARIADB_PASSWORD: ${{ secrets.DB_PASSWORD }}
 
       - name: Shut down servie
         run: docker compose -f ../docker-compose.yaml down
